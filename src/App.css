@@ -1,0 +1,400 @@
+/* --- Variables & Global Styles --- */
+:root {
+  --background-color: #ffffff;
+  --text-color: #555;
+  --title-color: #333;
+  --primary-blue: #3498db;
+  --light-blue-bg: #ecf5fc;
+  --border-color: #e0e0e0;
+  --dashed-border-blue: #a5cff1;
+  --button-text-color: #ffffff;
+  --font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-family);
+  background-color: var(--background-color);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3 {
+  color: var(--title-color);
+  font-weight: 500;
+}
+
+a {
+  color: var(--primary-blue);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: #2a7aaf;
+}
+
+/* --- Layout --- */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex-grow: 1;
+  padding: 20px;
+  max-width: 960px;
+  margin: 30px auto;
+  width: 90%;
+}
+
+/* --- Navbar --- */
+.navbar {
+  background-color: var(--background-color);
+  border-bottom: 1px solid var(--border-color);
+  padding: 0 20px;
+  height: 60px;
+}
+
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100%;
+}
+
+.navbar-left {
+}
+
+.navbar-brand {
+  font-weight: 700;
+  font-size: 1.3em;
+  color: var(--title-color);
+}
+
+.navbar-right {
+}
+
+.nav-link {
+  color: var(--text-color);
+  font-size: 0.95em;
+  padding: 5px 0;
+  position: relative;
+}
+.nav-link:hover {
+  color: var(--title-color);
+}
+
+.nav-icon {
+  font-size: 1.2em;
+  color: var(--text-color);
+  cursor: pointer;
+}
+.nav-icon:hover {
+  color: var(--title-color);
+}
+
+/* --- Main Header --- */
+.main-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.main-header h1 {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.main-header p {
+  font-size: 1.1em;
+  color: var(--text-color);
+}
+
+/* --- ImageUploader Box Style --- */
+.image-uploader-box {
+  border: 2px dashed var(--dashed-border-blue);
+  border-radius: 12px;
+  padding: 60px 30px;
+  background-color: #fdfdfe;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 250px;
+  margin-bottom: 40px;
+}
+
+.select-image-button {
+  background-color: var(--primary-blue);
+  color: var(--button-text-color);
+  border: none;
+  padding: 12px 25px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.1em;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.select-image-button:hover:not(:disabled) {
+  background-color: #2a7aaf;
+}
+
+.select-image-button:disabled {
+  background-color: #a0cfff;
+  cursor: not-allowed;
+}
+
+.controls-and-status {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  width: 100%;
+  max-width: 450px;
+}
+
+.quality-control,
+.dimension-control {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  background-color: #f8f9fa;
+  padding: 10px 15px;
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+  width: 100%;
+}
+
+.quality-control label,
+.dimension-control label {
+  font-size: 0.9em;
+  color: var(--title-color);
+  margin-right: 2px;
+}
+
+.quality-control input[type="number"],
+.dimension-control input[type="number"] {
+  width: 60px;
+  padding: 6px;
+  text-align: center;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 0.9em;
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+.quality-control input[type=number]::-webkit-inner-spin-button,
+.quality-control input[type=number]::-webkit-outer-spin-button,
+.dimension-control input[type=number]::-webkit-inner-spin-button,
+.dimension-control input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.quality-control button {
+  padding: 4px 8px;
+  font-size: 1em;
+  border: 1px solid var(--border-color);
+  background-color: #e9ecef;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.quality-control button:hover:not(:disabled) {
+  background-color: #dee2e6;
+}
+
+.quality-control button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.upload-button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+  width: 80%;
+  max-width: 300px;
+}
+
+.upload-button:hover:not(:disabled) {
+  background-color: #218838;
+}
+
+.upload-button:disabled {
+  background-color: #a3d9b1;
+  cursor: not-allowed;
+}
+
+/* --- Status & Result --- */
+.status {
+  margin-top: 0;
+  padding: 10px 15px;
+  background-color: var(--light-blue-bg);
+  border: 1px solid var(--dashed-border-blue);
+  border-radius: 6px;
+  color: #0056b3;
+  font-size: 0.95em;
+  text-align: center;
+  width: 100%;
+  word-wrap: break-word;
+}
+
+.result {
+  margin-top: 10px;
+  width: 100%;
+  text-align: center;
+}
+
+.result h3 {
+  margin-bottom: 10px;
+  font-size: 1.1em;
+}
+
+.result img {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  margin-top: 5px;
+  display: inline-block;
+}
+
+.result-actions {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.download-button,
+.result .select-image-button.secondary {
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: 500;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  border: none;
+}
+
+.download-button {
+  background-color: #17a2b8;
+  color: white;
+}
+
+.download-button:hover {
+  background-color: #138496;
+}
+
+.result .select-image-button.secondary {
+  background-color: #6c757d;
+  color: white;
+}
+
+.result .select-image-button.secondary:hover {
+  background-color: #5a6268;
+}
+
+
+/* --- Features Section --- */
+.features-section {
+  margin-top: 60px;
+  padding-top: 40px;
+  border-top: 1px solid var(--border-color);
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(250px, 1fr)
+  );
+  gap: 40px;
+}
+
+.feature-item {
+  text-align: center;
+}
+
+.feature-icon {
+  font-size: 2.5em;
+  margin-bottom: 15px;
+  line-height: 1;
+}
+
+.feature-title {
+  font-size: 1.2em;
+  margin-bottom: 8px;
+  color: var(--title-color);
+  font-weight: 700;
+}
+
+.feature-description {
+  font-size: 0.95em;
+  color: var(--text-color);
+  line-height: 1.5;
+}
+
+/* --- Comparison View --- */
+.comparison-container {
+  display: flex; /* Use flexbox for layout */
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+  justify-content: center; /* Center items */
+  gap: 20px; /* Space between images */
+  align-items: flex-start; /* Align tops */
+  width: 100%;
+  margin-top: 20px;
+}
+
+.comparison-container .image-container {
+  flex: 1; /* Allow containers to grow */
+  min-width: 200px; /* Minimum width before wrapping */
+  text-align: center;
+}
+
+.comparison-container .image-container img {
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  margin-top: 5px;
+  display: inline-block;
+  /* Let the inline styles in JSX control max-width/height per image */
+}
+
+.comparison-container h3 {
+  margin-bottom: 10px;
+  font-size: 1.1em;
+}
+
+.comparison-actions {
+  width: 100%; /* Make actions span full width below images */
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
